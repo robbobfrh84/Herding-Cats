@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en">
+<title>Herding Cats</title>
+<link rel="icon" href="../images/tabby.png">
+<head>
+  <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../style.css">
+</head>
+<body>
+
+  <div class="arrow left"
+    onclick="window.location.href='./3.html'">◀ 4</div>
+  <div class="arrow right"
+    onclick="window.location.href='5.html'">4 ▶ </div>
+
+  <h1> 🐾 Herding Cats 🐾 </h1>
+  <h3> Object Oriented Programming (OOP) with Javascript </h3>
+  <hr>
+
+  <h2> We can use <strong>Classes</strong> to make dynamic cats </h2>
+  <img src="../images/ragdoll.png" alt="" width="100px"
+    onclick="pet('cat1')"
+    style="cursor: pointer;"
+  >
+  <img src="../images/calico.png" alt="" width="100px"
+    onclick="pet('cat2')"
+    style="cursor: pointer;"
+  >
+  <img src="../images/tabby.png" alt="" width="100px"
+    onclick="pet('cat3')"
+    style="cursor: pointer; margin-bottom: 10px;"
+  >
+
+  <div style="text-align: left; width: 550px; margin: auto; font-size: 20px;">
+    &bull; Classes are a template for creating objects. <br>
+    &bull; They encapsulate data with code to work on that data. <br>
+    &bull; Classes in JS are built on prototypes <br>
+    &bull; But, also have some syntax and semantics <br>
+    &nbsp;&nbsp; that are not shared with ES5 class-like semantics. <br> <br>
+    &bull; See: ./docs/ObjectCreate.js for ES5 example <br>
+    <em style="font-size: 16px;"> Reference <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">Classes: mdn web docs</a> </em>
+  </div>
+
+<script type="text/javascript" src="js/4.js"></script>
+<script>
+
+function pet(cat) {
+
+  console.log(window[cat])
+  window[cat].meow()
+
+}
+
+</script>
+</body>
+</html>

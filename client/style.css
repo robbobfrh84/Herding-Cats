@@ -1,0 +1,69 @@
+html, body {
+  margin: 0;
+  font-family: avenir;
+  background: url("images/light_grain.png");
+  color: #202020;
+  /* padding-top: 5px; */
+  text-align: center;
+}
+h1, h3 {
+  padding: 3px;
+  margin: 0;
+}
+.arrow {
+  position: absolute;
+  top: 5px;
+  font-size: 30px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+.arrow:hover {
+  opacity: 0.9;
+}
+.arrow.left { left: 5px; }
+.arrow.right { right: 5px; }
+#catGrid {
+  margin-top: 20px;
+  font-size: 0px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.blk {
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  margin: 1px;
+  background-color: rgba(0,120,0,0.1);
+}
+.blk-cat {
+  position: absolute;
+  cursor: pointer;
+}
+.cat-image {
+  width: 80%;
+}
+.cat-image.Calico {
+  width: 100%;
+  padding-top: 3px;
+}
+.cat-image.Ragdoll {
+  width: 90%;
+}
+.move-arrow-container {
+  margin-top: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+.move-arrow {
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+  padding-bottom: 5px;
+  background-color: rgba(0,0,0,0.1);
+}
+.move-arrow:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+.move-arrow.right { transform: rotate(90deg); }
+.move-arrow.bottom { transform: rotate(180deg); }
+.move-arrow.left { transform: rotate(270deg); }

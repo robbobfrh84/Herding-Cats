@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en">
+<title>Herding Cats</title>
+<link rel="icon" href="../images/tabby.png">
+<head>
+  <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../style.css">
+</head>
+<body>
+
+  <div class="arrow left"
+    onclick="window.location.href='./4.html'">◀ 5</div>
+  <div class="arrow right"
+    onclick="window.location.href='../index.html'">5 ▶ </div>
+
+  <h1> 🐾 Herding Cats 🐾 </h1>
+  <h3> Object Oriented Programming (OOP) with Javascript </h3>
+
+  <div id="catGrid"></div>
+
+  <div class="move-arrow-container">
+    <div class="move-arrow left" onclick="move(-1,0)">⬆</div>
+    <div class="move-arrow" onclick="move(0,-1)">⬆</div>
+    <div class="move-arrow bottom" onclick="move(0,1)">⬆</div>
+    <div class="move-arrow right" onclick="move(1,0)">⬆</div>
+  </div>
+
+<script type="text/javascript" src="js/5.js"></script>
+<script>
+
+window.onload = ()=>{
+  render();
+}
+
+var userCat;
+var cats = [];
+
+function render() {
+  const columns = 10;
+  const rows = 8;
+  const blkSize = 50;
+
+  let cIndex = 1
+  while (window["cat"+cIndex]) {
+    window["cat"+cIndex].id = cIndex;
+    cats.push(window["cat"+cIndex]);
+    cIndex++;
+  }
+  userCat = cats[0]
+
+  catGrid.innerHTML = ""
+  for (var row = 0; row < rows; row++) {
+    for (var column = 0; column < columns; column++) {
+      catGrid.innerHTML += `
+        <div
+          id="${row}-${column}"
+          class="blk"
+          style="
+            width: ${blkSize}px;
+            height: ${blkSize}px;
+          "
+        ></div>
+      `;
+    }
+    catGrid.innerHTML += `<br>`;
+  }
+
+  cats.forEach( cat => {
+    const row = cat.row || rand(0,rows-1);
+    const column = cat.column || rand(0,columns-1);
+    const blk = row+"-"+column;
+    window[blk].innerHTML += buildCat(cat);
+    window[blk].onclick = () =>{
+      cat.meow();
+      userCat = cat;
+      console.log(" * cat",cat);
+    }
+  })
+
+}
+
+function buildCat(cat) {
+  return `
+    <div class="blk-cat">
+      <img
+        src="../images/${cat.type}.png"
+        width="100%"
+        class="cat-image ${cat.type}"
+      />
+    </div>
+  `;
+}
+
+function move(column, row) {
+  const oldRows = userCat.row;
+  const oldColumn = userCat.column;
+  cats.forEach( cat => {
+    window[cat.row+"-"+cat.column].innerHTML = ""
+  })
+  userCat.move(column, row);
+  cats.forEach( cat => {
+    try {
+      window[cat.row+"-"+cat.column].innerHTML += buildCat(cat);
+    } catch {
+      userCat.row = oldRows;
+      userCat.column = oldColumn;
+      window[cat.row+"-"+cat.column].innerHTML += buildCat(cat)
+    }
+    window[cat.row+"-"+cat.column].onclick = () =>{
+      cat.meow()
+      userCat = cat
+      console.log(" * cat",cat)
+    }
+  })
+  checkForCat()
+}
+
+function checkForCat() {
+  cats.forEach( (cat, i) => {
+    if (
+      userCat.id !== cat.id
+      && userCat.column === cat.column
+      && userCat.row === cat.row
+    ) {
+      userCat.makeFriend(cat)
+    }
+  })
+}
+
+document.addEventListener('keydown', function(e) {
+  const id = userCat.row+"-"+userCat.column;
+  let column = 0;
+  let row = 0;
+  let doMove = false
+  if (e.key === "ArrowUp") { row = -1; doMove = true; }
+  if (e.key === "ArrowRight") { column = 1; doMove = true; }
+  if (e.key === "ArrowDown") { row = 1; doMove = true;}
+  if (e.key === "ArrowLeft") { column = -1; doMove = true;}
+  if (doMove) {
+    move(column, row);
+  }
+})
+
+function rand(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+</script>
+</body>
+</html>

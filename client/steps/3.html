@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en">
+<title>Herding Cats</title>
+<link rel="icon" href="../images/tabby.png">
+<head>
+  <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../style.css">
+</head>
+<body>
+
+  <div class="arrow left"
+    onclick="window.location.href='./2.html'">◀ 3</div>
+  <div class="arrow right"
+    onclick="window.location.href='4.html'">3 ▶ </div>
+
+  <h1> 🐾 Herding Cats 🐾 </h1>
+  <h3> Object Oriented Programming (OOP) with Javascript </h3>
+  <hr>
+
+  <h2> We can have many objects! </h2>
+  <img src="../images/ragdoll.png" alt="" width="200px"
+    onclick="pet('cat1')"
+    style="cursor: pointer;"
+  >
+  <img src="../images/calico.png" alt="" width="200px"
+    onclick="pet('cat2')"
+    style="cursor: pointer;"
+  >
+  <img src="../images/tabby.png" alt="" width="200px"
+    onclick="pet('cat3')"
+    style="cursor: pointer;"
+  >
+  <h2 onclick=> 💫 And, we can make them unique! ✨ </h2>
+
+
+<script type="text/javascript" src="js/3.js"></script>
+<script>
+
+function pet(cat) {
+
+  console.log(window[cat])
+  window[cat].meow()
+
+}
+
+</script>
+</body>
+</html>
