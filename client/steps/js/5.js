@@ -13,8 +13,8 @@ class Cat {
   }
 
   move(column_direction, row_direction) {
-    this.column += column_direction
-    this.row += row_direction
+    this.column += column_direction;
+    this.row += row_direction;
   }
 
 }

@@ -12,6 +12,6 @@ class Cat {
 
 }
 
-var cat1 = new Cat( "Lucky",       "Ragdoll", 8,  [6,4] );
-var cat2 = new Cat( "Little Anne", "Calico",  3,  [4,3] );
-var cat3 = new Cat( "Bilbo",       "Tabby",   14, [2,1] );
+var cat1 = new Cat( "Lucky",       "Ragdoll", 8 );
+var cat2 = new Cat( "Little Anne", "Calico",  3 );
+var cat3 = new Cat( "Bilbo",       "Tabby",   14 );
