@@ -13,4 +13,4 @@ The finished example of this app can be found in the `client` folder of this rep
 _Be sure to checkout your browser's console to see the current state of the objects as you click the cats._
 
 ### LIVE LINK 🔥
-[https://robbobfrh84.github.io/Herding-Cats/](https://robbobfrh84.github.io/Herding-Cats/)
+[https://robbobfrh84.github.io/Herding-Cats/client](https://robbobfrh84.github.io/Herding-Cats/client)
